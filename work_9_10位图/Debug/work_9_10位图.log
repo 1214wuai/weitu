@@ -1,3 +1,2 @@
-﻿  BitMap.c
-d:\c\work\work9_10位图\work_9_10位图\bitmap.c(6): warning C4013: “memset”未定义；假设外部返回 int
+﻿  test.c
   work_9_10位图.vcxproj -> D:\c\work\work9_10位图\Debug\work_9_10位图.exe
