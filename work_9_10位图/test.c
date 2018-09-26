@@ -71,13 +71,22 @@ testAppearNoMoreTwice()
 	BitMapAppearNoMoreTwice(&bt, 1024);
 
 }
+
+testBloomFilter()
+{
+	char* str1 = "ab";
+	BloomFilter bmp;
+	StrToInt hashfun[5] = { HashFun1 ,HashFun2,HashFun3,HashFun4,HashFun5 };
+	BloomFilterInit(&bmp, 5, hashfun);
+}
 int main()
 {
 	int x = 2;
 	x |= 1;
 	//test();
 	//testBitMapOnceTime();
-	testAppearNoMoreTwice();
+	//testAppearNoMoreTwice();
+	testBloomFilter();
 	system("pause");
 	return 0;
 }

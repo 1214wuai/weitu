@@ -164,3 +164,99 @@ void BitMapAppearNoMoreTwice(BitMap*bm, size_t x)
 		return;
 	
 }
+///////////////////////////////////////////str转int的方法////////////////////////////////////////////////////////////
+int HashFun1(const char* str)//相加
+{
+	assert(str);
+	int hash = 0;
+	while (*str)
+	{
+		hash += (*str++);
+	}
+	return hash;
+}
+int HashFun2(const char* str)
+{
+	assert(str);
+	int hash = 0;
+	while (*str)
+	{
+		hash *= (*str++);
+	}
+	return hash;
+}
+int HashFun3(const char* str)
+{
+	assert(str);
+	int hash = 0;
+	while (*str)
+	{
+		hash *= (*str++);
+	}
+	return hash;
+}
+int HashFun4(const char* str)
+{
+	assert(str);
+	int hash = 0;
+	while (*str)
+	{
+		hash *= (*str++);
+	}
+	return hash;
+}
+int HashFun5(const char* str)
+{
+	assert(str);
+	int hash = 0;
+	while (*str)
+	{
+		hash *= (*str++);
+	}
+	return hash;
+}
+																
+void BloomFilterInit(BloomFilter *BloomFilter, int total, StrToInt *hashfun)
+{
+	assert(BloomFilter);
+	//BloomFilter->_bmp = (BitMap*)malloc(sizeof(char)*((total >> 3)+1));
+	int i = 0;
+	BitMapInit(&BloomFilter->_bmp, total * 5);//设置Bit位
+	for (i = 0; i < 5; i++)
+	{
+		BloomFilter->HashFun[i] = hashfun[i];
+	}
+	BloomFilter->size = 0;
+}
+void InsertBloomFilter(BloomFilter *BloomFilter, char *str)
+{
+	int hash1 = 0;
+	int hash2 = 0;
+	int hash3 = 0;
+	int hash4 = 0;
+	int hash5 = 0;
+	assert(BloomFilter);
+	hash1 = BloomFilter->HashFun[0](str);
+	hash2 = BloomFilter->HashFun[1](str);
+	hash3 = BloomFilter->HashFun[2](str);
+	hash4 = BloomFilter->HashFun[3](str);
+	hash5 = BloomFilter->HashFun[4](str);
+	BitMapSet(&BloomFilter->_bmp, hash1);
+	BitMapSet(&BloomFilter->_bmp, hash2);
+	BitMapSet(&BloomFilter->_bmp, hash3);
+	BitMapSet(&BloomFilter->_bmp, hash4);
+	BitMapSet(&BloomFilter->_bmp, hash5);
+
+}
+int SizeBloomFilter(BloomFilter *BloomFilter)
+{
+
+}
+int FindBloomFilter(BloomFilter* BloomFilter, char *str)
+{
+
+}
+void DeleteBloomFilter(BloomFilter *BloomFilter, char *str)
+{
+
+}
